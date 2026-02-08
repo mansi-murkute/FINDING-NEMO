@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finding Nemo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #dff2ff 0%,
+    #eef8ff 20%,
+    #d6ecf8 55%,
+    #b9dff1 100%
+  );
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Phone container */
+.phone {
+  width: 100%;
+  max-width: 390px;
+  height: 100vh;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sky overlay */
+.sky {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 28%;
+  background: linear-gradient(
+    180deg,
+    #cfeaff,
+    rgba(207,234,255,0)
+  );
+  z-index: 1;
+}
+
+/* Floating bubbles */
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* Content */
+.container {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.content {
+  color: #0c3b5f;
+}
+
+/* Image */
+.center-image {
+  width: 180px;
+  max-width: 80%;
+  margin: 18px auto 8px;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1.2px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.hint {
+  margin-top: 12px;
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+/* Glass code box */
+.morse-box {
+  margin-top: 26px;
+  padding: 18px;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #0b466b;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+
+/* Riddle hint */
+.riddle {
+  margin-top: 16px;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: rgba(12, 59, 95, 0.7);
+}
+
+/* Fish orbit */
+.orbit {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  animation: rotate 26s linear infinite;
+  opacity: 0.8;
+}
+
+.fish {
+  position: absolute;
+  width: 26px;
+  height: 13px;
+  background: linear-gradient(135deg, #6bbcff, #a8dcff);
+  border-radius: 50% 50% 50% 0;
+}
+
+.fish::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 3px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #8fd0ff;
+}
+
+.fish:nth-child(1) { top: -6px; left: 50%; }
+.fish:nth-child(2) { right: -6px; top: 50%; transform: rotate(90deg); }
+.fish:nth-child(3) { bottom: -6px; left: 50%; transform: rotate(180deg); }
+.fish:nth-child(4) { left: -6px; top: 50%; transform: rotate(270deg); }
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Soft waves */
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  animation: waveMove 14s linear infinite;
+}
+
+.wave.second {
+  bottom: 30px;
+  opacity: 0.15;
+  animation-duration: 20s;
+}
+
+@keyframes waveMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+</style>
+</head>
+
+<body>
+<div class="phone">
+
+  <!-- Sky -->
+  <div class="sky"></div>
+
+  <!-- Bubbles -->
+  <div class="bubble" style="left:10%; width:14px; height:14px; animation-duration:14s;"></div>
+  <div class="bubble" style="left:30%; width:8px; height:8px; animation-duration:10s;"></div>
+  <div class="bubble" style="left:55%; width:12px; height:12px; animation-duration:16s;"></div>
+  <div class="bubble" style="left:75%; width:6px; height:6px; animation-duration:9s;"></div>
+  <div class="bubble" style="left:90%; width:10px; height:10px; animation-duration:13s;"></div>
+
+  <div class="container">
+    <div class="orbit">
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+    </div>
+
+    <div class="content">
+      <div class="title">SNDT – ACM W STUDENT CHAPTER</div>
+      <div class="subtitle">FINDING NEMO</div>
+      <div class="hint">HINT 7</div>
+
+      <!-- Image -->
+      <img src="image.png" alt="Finding Nemo Image" class="center-image">
+
+      <div class="morse-box">
+        "POLXYRTEQMZNTUASVJKLCFHWEDGRBIDSYR_
+RZUSKXTRENDVEBRFIQDLBIRDA"
+      </div>
+
+      <div class="riddle">
+        “”
+      </div>
+    </div>
+  </div>
+
+  <div class="wave"></div>
+  <div class="wave second"></div>
+
+</div>
+</body>
+</html>
